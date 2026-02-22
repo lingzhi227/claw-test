@@ -1,333 +1,319 @@
-# 🧪 Claw Test - Git Skills Suite
+# 🧠 Git Skills Suite for Claude Code
 
-A comprehensive Git skills testing framework designed for Claude Code automation and AI-assisted development workflows.
+**Professional Git workflow skills following the Agent Skills open standard**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Agent Skills](https://img.shields.io/badge/Agent-Skills-blue.svg)](https://agentskills.io)
+[![Claude Code](https://img.shields.io/badge/Claude-Code-purple.svg)](https://code.claude.com)
 
 ## 🎯 Overview
 
-This repository contains a complete suite of Git skills that can be used to:
-- **Test Claude Code's Git capabilities** with full automation
-- **Teach AI assistants** advanced Git workflows
-- **Validate Git operations** in CI/CD pipelines
-- **Learn Git** through practical, executable examples
+A comprehensive collection of 8 Git workflow skills that extend Claude Code with expert Git capabilities. Each skill follows the Agent Skills open standard and can be invoked automatically by Claude or manually by you.
 
-## 📦 Features
+### What are Agent Skills?
 
-✅ **8 Comprehensive Git Skills:**
-1. Basic Operations (init, add, commit, status, log)
-2. Branching and Merging (create, switch, merge, delete branches)
-3. Remote Operations (add, list, show, rename, remove remotes)
-4. Stash Operations (save, list, show, apply stashed changes)
-5. Tagging (lightweight tags, annotated tags, list, show, delete)
-6. Reset and Revert (undo changes, revert commits)
-7. Diff Operations (view changes, compare commits)
-8. Cherry-Pick (apply specific commits across branches)
+Agent Skills are modular capabilities that extend AI agents like Claude. Each skill packages instructions and best practices that Claude uses automatically when relevant. These skills follow the [Agent Skills open standard](https://agentskills.io) and work across Claude Code, Codex CLI, and ChatGPT.
 
-✅ **Automated Testing Framework:**
-- Single-command test execution
-- Isolated test workspace
-- Detailed pass/fail reporting
-- Color-coded output
+## ✨ Features
 
-✅ **Claude Code Ready:**
-- Full bypass permissions configuration
-- Automated test scripts
-- Clear skill documentation
-- Ready for AI integration
+- 📦 **8 Professional Git Skills** - From basics to advanced workflows
+- 🤖 **Auto-invocation** - Claude uses skills automatically when needed
+- ⌨️ **Slash Commands** - Invoke skills directly (`/git-commit`, `/git-stash`, etc.)
+- 🔧 **Best Practices Built-in** - Follow industry standards automatically
+- 📚 **Comprehensive Documentation** - Each skill includes detailed guidelines
+- 🔄 **Open Standard** - Compatible with multiple AI platforms
+
+## 📦 Available Skills
+
+| Skill | Slash Command | Description |
+|-------|--------------|-------------|
+| **Git Init** | `/git-init-commit` | Initialize repository and create first commit with best practices |
+| **Branch & Merge** | `/git-branch-merge` | Create, switch, and merge branches following Git Flow |
+| **Stash** | `/git-stash` | Temporarily save and restore uncommitted changes |
+| **Commit** | `/git-commit` | Create commits following Conventional Commits format |
+| **Tag** | `/git-tag` | Create and manage release tags with semantic versioning |
+| **Diff** | `/git-diff` | Compare changes across commits, branches, and files |
+| **Cherry-Pick** | `/git-cherry-pick` | Apply specific commits across branches |
+| **Rebase** | `/git-rebase` | Rewrite history for cleaner, linear timeline |
 
 ## 🚀 Quick Start
 
 ### Installation
 
-```bash
-git clone https://github.com/YOUR_USERNAME/claw-test.git
-cd claw-test
-npm install
-```
+**Option 1: Install Globally (Recommended)**
 
-### Run All Tests
+Install for all your projects:
 
 ```bash
-npm test
+git clone https://github.com/lingzhi227/claw-test.git
+cp -r claw-test/skills/* ~/.claude/skills/
 ```
 
-### Run Individual Skills
+**Option 2: Install Per-Project**
+
+Install for a specific project:
 
 ```bash
-# Make scripts executable
-chmod +x skills/*.sh
-
-# Run a specific skill
-cd test-workspace
-bash ../skills/01-basic-operations.sh
+cd your-project
+mkdir -p .claude/skills
+cp -r /path/to/claw-test/skills/* .claude/skills/
 ```
 
-## 📚 Skill Details
+**Option 3: Symlink for Development**
 
-### Skill 1: Basic Operations
-**File:** `skills/01-basic-operations.sh`
-
-Learn fundamental Git operations:
-- Initialize a repository
-- Add and commit files
-- Check repository status
-- View commit history
-
-**Usage:**
 ```bash
-bash skills/01-basic-operations.sh
+git clone https://github.com/lingzhi227/claw-test.git ~/claw-test
+cd ~/.claude/skills
+ln -s ~/claw-test/skills/* .
 ```
 
-### Skill 2: Branching and Merging
-**File:** `skills/02-branching-merging.sh`
+### Verification
 
-Master branch management:
-- Create new branches
-- Switch between branches
-- Merge branches
-- Delete branches
-
-**Usage:**
-```bash
-bash skills/02-branching-merging.sh
+Open Claude Code and ask:
+```
+What Git skills are available?
 ```
 
-### Skill 3: Remote Operations
-**File:** `skills/03-remote-operations.sh`
+You should see all 8 Git skills listed!
 
-Handle remote repositories:
-- Add remote repositories
-- List and show remotes
-- Rename remotes
-- Remove remotes
+## 💡 Usage
 
-**Usage:**
-```bash
-bash skills/03-remote-operations.sh
+### Automatic Invocation
+
+Claude automatically uses skills when relevant:
+
+```
+You: "Create a feature branch for user authentication"
+Claude: *uses git-branch-merge skill*
+
+You: "I need to commit these changes"
+Claude: *uses git-commit skill with Conventional Commits format*
+
+You: "Switch branches but I have uncommitted work"
+Claude: *uses git-stash skill*
 ```
 
-### Skill 4: Stash Operations
-**File:** `skills/04-stash-operations.sh`
+### Manual Invocation
 
-Manage temporary work:
-- Stash uncommitted changes
-- List stashes
-- Apply stashed changes
-- Pop stashes
+Invoke skills directly with slash commands:
 
-**Usage:**
-```bash
-bash skills/04-stash-operations.sh
+```
+/git-init-commit
+/git-branch-merge
+/git-commit "Add authentication feature"
+/git-tag v1.0.0
 ```
 
-### Skill 5: Tagging
-**File:** `skills/05-tagging.sh`
+### Example Workflows
 
-Create and manage tags:
-- Create lightweight tags
-- Create annotated tags
-- List tags
-- Delete tags
+**Starting a New Project**:
+```
+You: Initialize Git in this directory
 
-**Usage:**
-```bash
-bash skills/05-tagging.sh
+Claude uses /git-init-commit:
+- Initializes repository
+- Configures user info
+- Sets default branch to main
+- Reviews files to stage
+- Creates meaningful first commit
 ```
 
-### Skill 6: Reset and Revert
-**File:** `skills/06-reset-revert.sh`
+**Feature Development**:
+```
+You: Create a branch for the login feature
 
-Undo changes safely:
-- Revert commits
-- Soft reset
-- Hard reset
-- Amend commits
-
-**Usage:**
-```bash
-bash skills/06-reset-revert.sh
+Claude uses /git-branch-merge:
+- Creates feature/login branch
+- Switches to new branch
+- Explains workflow for committing and merging
 ```
 
-### Skill 7: Diff Operations
-**File:** `skills/07-diff-operations.sh`
+**Release Tagging**:
+```
+You: Tag this as version 1.0.0
 
-Compare changes:
-- View unstaged changes
-- View staged changes
-- Compare commits
-- Show diff statistics
-
-**Usage:**
-```bash
-bash skills/07-diff-operations.sh
+Claude uses /git-tag:
+- Creates annotated tag
+- Follows semantic versioning
+- Includes release notes
+- Shows how to push tag
 ```
 
-### Skill 8: Cherry-Pick
-**File:** `skills/08-cherry-pick.sh`
+## 📖 Documentation
 
-Apply specific commits:
-- Cherry-pick commits across branches
-- Verify cherry-picked changes
-- Handle conflicts
+- **[INSTALLATION.md](INSTALLATION.md)** - Detailed installation guide
+- **[Skills Documentation](skills/)** - Individual skill SKILL.md files
+- **Skill Features**:
+  - YAML frontmatter configuration
+  - Allowed tools specification
+  - Best practices and examples
+  - Common issue troubleshooting
 
-**Usage:**
-```bash
-bash skills/08-cherry-pick.sh
-```
+## 🛠️ Configuration
 
-## 🤖 Using with Claude Code
+### Grant Git Permissions
 
-### Grant Full Permissions
+Allow Claude to run Git commands automatically:
 
-To test with Claude Code using bypass permissions:
+Create `~/.claude/permissions.json`:
 
 ```json
 {
-  "dangerouslyBypassPermissions": true
+  "allow": [
+    "Bash(git *)"
+  ]
 }
 ```
 
-### Example Claude Code Session
+### Customize Skills
 
-```
-User: "Test all Git skills in claw-test repo"
+Edit any skill to match your workflow:
 
-Claude: *runs npm test*
-- ✅ All 8 skills passed
-- 📊 100% success rate
-- 🎉 Git operations validated
-```
-
-### Integration Examples
-
-**Example 1: Automated Testing**
 ```bash
-# Claude Code can run this automatically
-npm test && echo "All Git skills verified!"
+code ~/.claude/skills/git-commit/SKILL.md
 ```
 
-**Example 2: Skill-by-Skill Validation**
-```bash
-# Test each skill individually
-for skill in skills/*.sh; do
-    echo "Testing $skill..."
-    bash "$skill" && echo "✅ Passed"
-done
+Changes take effect immediately!
+
+## 🎨 Skill Features
+
+Each skill includes:
+
+- **✅ YAML Frontmatter** - Metadata and configuration
+- **✅ Clear Description** - When and how to use
+- **✅ Best Practices** - Industry-standard workflows
+- **✅ Examples** - Real-world usage scenarios
+- **✅ Troubleshooting** - Common issues and solutions
+- **✅ Tool Permissions** - Scoped Bash(git *) access
+
+## 🏗️ Project Structure
+
+```
+claw-test/
+├── skills/                       # Agent Skills
+│   ├── git-init-commit/
+│   │   └── SKILL.md             # Initialize repo skill
+│   ├── git-branch-merge/
+│   │   └── SKILL.md             # Branching workflow
+│   ├── git-stash/
+│   │   └── SKILL.md             # Stash operations
+│   ├── git-commit/
+│   │   └── SKILL.md             # Commit best practices
+│   ├── git-tag/
+│   │   └── SKILL.md             # Release tagging
+│   ├── git-diff/
+│   │   └── SKILL.md             # Diff operations
+│   ├── git-cherry-pick/
+│   │   └── SKILL.md             # Cherry-pick commits
+│   └── git-rebase/
+│       └── SKILL.md             # Rebase operations
+├── INSTALLATION.md              # Installation guide
+├── README.md                    # This file
+├── LICENSE                      # MIT License
+└── test-skills.sh              # Validation script
 ```
 
 ## 🧪 Testing
 
-### Run All Tests
+Validate skill structure:
+
 ```bash
-npm test
+./test-skills.sh
 ```
 
-### Run Specific Test Categories
-```bash
-npm run test:basic      # Basic Git operations
-npm run test:branching  # Branching and merging
-npm run test:advanced   # Advanced operations
+Expected output:
 ```
+✅ All skills passed validation!
 
-### Test Output
-
+Total skills: 8
+Errors: 0
 ```
-🚀 Git Skills Test Suite
-Testing all Git skills for Claude Code
-
-Found 8 skill scripts to test
-
-============================================================
-Testing: 01-basic-operations
-============================================================
-=== Git Skill: Basic Operations ===
-→ Initializing Git repository...
-✓ Repository initialized
-→ Creating test file...
-→ Staging file...
-→ Committing changes...
-✓ File committed successfully
-✅ Basic Operations skill completed successfully!
-
-✅ 01-basic-operations PASSED
-
-[... more tests ...]
-
-============================================================
-TEST SUMMARY
-============================================================
-Total Skills: 8
-Passed: 8
-Failed: 0
-
-============================================================
-🎉 ALL TESTS PASSED! 🎉
-```
-
-## 📁 Project Structure
-
-```
-claw-test/
-├── skills/                    # Git skill scripts
-│   ├── 01-basic-operations.sh
-│   ├── 02-branching-merging.sh
-│   ├── 03-remote-operations.sh
-│   ├── 04-stash-operations.sh
-│   ├── 05-tagging.sh
-│   ├── 06-reset-revert.sh
-│   ├── 07-diff-operations.sh
-│   └── 08-cherry-pick.sh
-├── test/                      # Test framework
-│   └── run-all-tests.js
-├── examples/                  # Usage examples
-├── package.json
-├── README.md
-└── LICENSE
-```
-
-## 🎯 Use Cases
-
-1. **AI Development Testing**: Validate Claude Code's Git capabilities
-2. **Learning Git**: Interactive, executable Git tutorials
-3. **CI/CD Validation**: Automated Git workflow testing
-4. **Development Onboarding**: Quick Git skill verification
-5. **Integration Testing**: Test Git automation tools
-
-## 🛠️ Requirements
-
-- **Git**: 2.0 or higher
-- **Node.js**: 14.0 or higher (for test runner)
-- **Bash**: 4.0 or higher
-
-## 📝 License
-
-MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 🤝 Contributing
 
-Contributions welcome! Please feel free to submit a Pull Request.
+Contributions welcome! To add a new skill:
 
-### Adding New Skills
+1. Create skill directory: `skills/your-skill/`
+2. Add `SKILL.md` with YAML frontmatter
+3. Follow existing skill patterns
+4. Run `./test-skills.sh` to validate
+5. Submit a pull request
 
-1. Create a new script in `skills/` directory
-2. Follow the naming convention: `XX-skill-name.sh`
-3. Include clear documentation and comments
-4. Add test validation
-5. Update README.md
+## 📝 Skill Template
+
+```yaml
+---
+name: skill-name
+description: What this skill does and when to use it
+allowed-tools: Bash(git *)
+---
+
+# Skill Name
+
+Detailed instructions and best practices...
+
+## When to use
+## Instructions
+## Best Practices
+## Examples
+```
 
 ## 🏷️ Version
 
-**Current Version:** 0.1.0
+**Current Version:** 2.0.0
 
-## 📧 Contact
+### What's New in 2.0
 
-Created by Claw AI Assistant
+- ✨ Complete rewrite as Agent Skills
+- 🎯 Follow Agent Skills open standard
+- 🤖 Auto-invocation by Claude
+- ⌨️ Slash command support
+- 📚 Enhanced documentation
+- 🧪 Validation framework
+
+### Migration from 1.x
+
+Version 1.x used shell scripts. Version 2.x uses Agent Skills (SKILL.md format).
+
+**To upgrade**:
+1. Remove old shell scripts
+2. Install new skills from `skills/` directory
+3. Skills are now invoked by Claude automatically
+
+## 📚 Resources
+
+- **[Claude Code Skills Documentation](https://code.claude.com/docs/en/skills)**
+- **[Agent Skills Standard](https://agentskills.io)**
+- **[Anthropic Skills Repository](https://github.com/anthropics/skills)**
+- **[Git Documentation](https://git-scm.com/doc)**
+
+## Sources
+
+Research and implementation based on:
+- [Extend Claude with skills - Claude Code Docs](https://code.claude.com/docs/en/skills)
+- [Agent Skills - Claude API Docs](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)
+- [GitHub - anthropics/skills](https://github.com/anthropics/skills)
+- [Skills explained: How Skills compares to prompts, Projects, MCP, and subagents | Claude](https://claude.com/blog/skills-explained)
+
+## 📧 Support
+
+- **Issues**: [GitHub Issues](https://github.com/lingzhi227/claw-test/issues)
+- **Documentation**: [Installation Guide](INSTALLATION.md)
+- **Skills**: Browse `skills/*/SKILL.md` for individual documentation
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file
 
 ## 🌟 Acknowledgments
 
-- Designed for Claude Code testing
-- Built with automation in mind
-- Inspired by real-world Git workflows
+- Built following [Agent Skills](https://agentskills.io) open standard
+- Designed for [Claude Code](https://code.claude.com)
+- Compatible with Codex CLI and ChatGPT
+- Inspired by professional Git workflows
 
 ---
 
-**Happy Git-ing! 🚀**
+**Made with ❤️ for Claude Code**
+
+*Extend your AI with professional Git workflows*
